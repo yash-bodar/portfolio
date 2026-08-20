@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Yash Bodar | Senior PHP Laravel Developer</title>
+    <meta name="description" content="Personal portfolio of Yash Bodar - Senior PHP Laravel Developer specializing in robust backend architectures, scalable APIs, and modern web applications.">
+    <meta name="keywords" content="Yash Bodar, Laravel Developer, PHP Developer, Senior Laravel Developer, Full Stack Developer, Software Architect, Portfolio">
+    <meta name="author" content="Yash Bodar">
+
+    <!-- Open Graph / Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Yash Bodar | Senior PHP Laravel Developer">
+    <meta property="og:description" content="Personal portfolio of Yash Bodar showcasing enterprise web applications, scalable APIs, and clean PHP & Laravel architectures.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'aurora-green': '#00ffaa',
+                        'aurora-blue': '#00aaff',
+                        'aurora-purple': '#aa00ff',
+                        'aurora-pink': '#ff00aa',
+                        'dark-bg': '#070a13',
+                        'dark-surface': '#0e1424',
+                        'dark-card': '#141c30',
+                        'dark-border': 'rgba(255, 255, 255, 0.08)'
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        heading: ['"Outfit"', 'sans-serif'],
+                        mono: ['"Fira Code"', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Aurora CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-dark-bg text-slate-100 font-sans selection:bg-aurora-green/30 selection:text-aurora-green">
+
+    <!-- Dynamic Cursor Spotlight -->
+    <div id="cursor-spotlight"></div>
+
+    <!-- Background Aurora Glow & Ambient Canvas -->
+    <div class="aurora-bg-mesh"></div>
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#home" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-aurora-green to-aurora-blue p-[1.5px] group-hover:shadow-[0_0_20px_rgba(0,255,170,0.5)] transition duration-300">
+                    <div class="w-full h-full bg-dark-bg rounded-[10px] flex items-center justify-center">
+                        <span class="font-heading font-bold text-lg gradient-text">YB</span>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading font-bold text-lg tracking-wider text-white group-hover:text-aurora-green transition">Yash Bodar</span>
+                    <span class="text-[10px] text-aurora-blue font-mono tracking-widest uppercase">Portfolio</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center space-x-7">
+                <a href="#home" class="nav-link text-sm font-medium text-slate-300 hover:text-aurora-green transition">Home</a>
+                <a href="#about" class="nav-link text-sm font-medium text-slate-300 hover:text-aurora-green transition">About</a>
+                <a href="#skills" class="nav-link text-sm font-medium text-slate-300 hover:text-aurora-green transition">Skills</a>
+                <a href="#experience" class="nav-link text-sm font-medium text-slate-300 hover:text-aurora-green transition">Experience</a>
+                <a href="#services" class="nav-link text-sm font-medium text-slate-300 hover:text-aurora-green transition">Services</a>
+                <a href="#portfolio" class="nav-link text-sm font-medium text-slate-300 hover:text-aurora-green transition">Portfolio</a>
+                <a href="#contact" class="nav-link text-sm font-medium text-slate-300 hover:text-aurora-green transition">Contact</a>
+            </nav>
+
+            <!-- Nav Actions -->
+            <div class="hidden sm:flex items-center space-x-4">
+                <a href="resume.pdf" download="Yash_Bodar_Resume.pdf" class="px-4 py-2 rounded-full border border-aurora-green/40 text-aurora-green text-xs uppercase tracking-wider font-semibold hover:bg-aurora-green hover:text-dark-bg transition">
+                    <i class="fas fa-file-download mr-1.5"></i>Resume
+                </a>
+                <a href="#contact" class="px-5 py-2.5 rounded-full btn-primary text-xs uppercase tracking-wider font-bold">
+                    <i class="fas fa-paper-plane mr-2"></i>Hire Me
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobileMenuBtn" class="lg:hidden text-slate-300 hover:text-aurora-green p-2 focus:outline-none" aria-label="Toggle Menu">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-dark-border bg-dark-bg/95 backdrop-blur-xl px-6 py-6 space-y-4">
+            <a href="#home" class="block text-slate-200 hover:text-aurora-green font-medium py-1">Home</a>
+            <a href="#about" class="block text-slate-200 hover:text-aurora-green font-medium py-1">About</a>
+            <a href="#skills" class="block text-slate-200 hover:text-aurora-green font-medium py-1">Skills</a>
+            <a href="#experience" class="block text-slate-200 hover:text-aurora-green font-medium py-1">Experience</a>
+            <a href="#services" class="block text-slate-200 hover:text-aurora-green font-medium py-1">Services</a>
+            <a href="#portfolio" class="block text-slate-200 hover:text-aurora-green font-medium py-1">Portfolio</a>
+            <a href="#contact" class="block text-slate-200 hover:text-aurora-green font-medium py-1">Contact</a>
+            <div class="pt-4 border-t border-dark-border/50">
+                <a href="#contact" class="block text-center py-3 rounded-xl btn-primary text-sm font-semibold">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="relative z-10">
+
+        <!-- ==================== HERO SECTION ==================== -->
+        <section id="home" class="min-h-screen flex items-center justify-center pt-28 pb-16 px-6 relative">
+            <div class="max-w-6xl mx-auto w-full grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Text -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border border-aurora-green/30 bg-aurora-green/10 text-aurora-green text-xs font-mono tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-aurora-green animate-ping"></span>
+                        <span>Available for high-impact projects</span>
+                    </div>
+
+                    <h1 class="font-heading text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Hello, I'm <br>
+                        <span class="gradient-text">Yash Bodar</span>
+                    </h1>
+
+                    <!-- Dynamic Typing Subtitle -->
+                    <div class="h-10 flex items-center justify-center lg:justify-start">
+                        <span class="text-xl sm:text-2xl text-slate-300 font-medium font-mono" id="typing-role"></span>
+                        <span class="typing-cursor"></span>
+                    </div>
+
+                    <p class="text-slate-400 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        Senior PHP Laravel Developer with 3+ years of experience building resilient backend architectures, high-throughput REST APIs, and modern responsive web applications.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#portfolio" class="px-7 py-3 rounded-full btn-primary text-sm font-semibold flex items-center space-x-2">
+                            <span>Explore Projects</span>
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                        <a href="resume.pdf" download="Yash_Bodar_Resume.pdf" class="px-6 py-3 rounded-full btn-secondary text-sm font-semibold flex items-center space-x-2">
+                            <i class="fas fa-download text-xs"></i>
+                            <span>Download CV</span>
+                        </a>
+                        <a href="https://wa.me/919016012405" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full border border-emerald-500/40 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500 hover:text-dark-bg text-sm font-semibold flex items-center space-x-2 transition">
+                            <i class="fab fa-whatsapp text-base"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <!-- Social Media Links -->
+                    <div class="pt-6 flex items-center justify-center lg:justify-start space-x-5">
+                        <span class="text-xs text-slate-500 uppercase tracking-widest font-mono">Connect:</span>
+                        <a href="https://github.com/yash-bodar" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-slate-300 hover:text-aurora-green hover:border-aurora-green/50 transition" title="GitHub">
+                            <i class="fab fa-github text-lg"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/yash-bodar-8558a5275" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-slate-300 hover:text-aurora-blue hover:border-aurora-blue/50 transition" title="LinkedIn">
+                            <i class="fab fa-linkedin-in text-lg"></i>
+                        </a>
+                        <a href="mailto:yashbodar7@gmail.com" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-slate-300 hover:text-aurora-purple hover:border-aurora-purple/50 transition" title="Email">
+                            <i class="fas fa-envelope text-lg"></i>
+                        </a>
+                        <a href="https://wa.me/919016012405" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-slate-300 hover:text-aurora-green hover:border-aurora-green/50 transition" title="WhatsApp (+91 9016012405)">
+                            <i class="fab fa-whatsapp text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic / Code Visual Card & Interactive Artisan Terminal -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <!-- Ambient Glow Backdrop -->
+                        <div class="absolute -inset-1.5 bg-gradient-to-r from-aurora-green via-aurora-blue to-aurora-purple rounded-3xl blur-xl opacity-30 glow-pulse"></div>
+
+                        <!-- Floating Micro Badges -->
+                        <div class="absolute -top-4 -right-4 glass-card px-3 py-1.5 rounded-xl border border-aurora-green/40 shadow-xl flex items-center space-x-2 animate-float-1 z-20 hidden sm:flex">
+                            <i class="fas fa-bolt text-aurora-green text-xs"></i>
+                            <span class="text-xs font-semibold text-white font-mono">Stripe & APIs</span>
+                        </div>
+
+                        <div class="absolute -bottom-4 -left-4 glass-card px-3 py-1.5 rounded-xl border border-aurora-blue/40 shadow-xl flex items-center space-x-2 animate-float-2 z-20 hidden sm:flex">
+                            <i class="fas fa-server text-aurora-blue text-xs"></i>
+                            <span class="text-xs font-semibold text-white font-mono">Laravel 11 Ready</span>
+                        </div>
+
+                        <!-- Main Terminal / Code Card -->
+                        <div class="relative glass-card rounded-2xl p-6 border border-dark-border/80 shadow-2xl overflow-hidden">
+                            <!-- Window Header with Tabs -->
+                            <div class="flex items-center justify-between pb-3 mb-3 border-b border-dark-border">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                                </div>
+
+                                <!-- Tab Switcher -->
+                                <div class="flex items-center space-x-1 p-1 bg-dark-bg/80 rounded-lg border border-dark-border text-xs font-mono">
+                                    <button id="tabProfileBtn" class="terminal-tab-btn active px-2.5 py-0.5 rounded-md text-[11px] transition text-white">
+                                        Profile.php
+                                    </button>
+                                    <button id="tabTinkerBtn" class="terminal-tab-btn px-2.5 py-0.5 rounded-md text-[11px] transition text-slate-400 hover:text-aurora-green flex items-center space-x-1">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-aurora-green animate-pulse"></span>
+                                        <span>Artisan Tinker</span>
+                                    </button>
+                                </div>
+
+                                <div class="text-[11px] text-aurora-green font-mono hidden sm:block">PHP 8.3</div>
+                            </div>
+
+                            <!-- VIEW 1: Code Snippet (Default) -->
+                            <div id="codeSnippetView" class="font-mono text-xs sm:text-sm space-y-2 text-slate-300 transition-all duration-300">
+                                <p><span class="text-aurora-pink">namespace</span> App\Developer;</p>
+                                <p class="pt-1"><span class="text-aurora-blue">class</span> <span class="text-aurora-green">YashBodar</span> <span class="text-aurora-blue">extends</span> BackendEngineer {</p>
+                                <p class="pl-4 text-slate-400">// Core Stack & Experience</p>
+                                <p class="pl-4"><span class="text-aurora-pink">public string</span> <span class="text-slate-200">$frameworks</span> = <span class="text-emerald-300">'Laravel | PHP | CodeIgniter'</span>;</p>
+                                <p class="pl-4"><span class="text-aurora-pink">public string</span> <span class="text-slate-200">$frontend</span> = <span class="text-emerald-300">'Vue.js | Blade | Bootstrap 5'</span>;</p>
+                                <p class="pl-4"><span class="text-aurora-pink">public string</span> <span class="text-slate-200">$experience</span> = <span class="text-amber-300">'3+ Years'</span>;</p>
+                                <p class="pl-4"><span class="text-aurora-pink">public array</span> <span class="text-slate-200">$specialties</span> = [</p>
+                                <p class="pl-8 text-aurora-green">'RESTful API Engineering',</p>
+                                <p class="pl-8 text-aurora-blue">'MySQL Query Optimization',</p>
+                                <p class="pl-8 text-aurora-purple">'Stripe Payment Gateways'</p>
+                                <p class="pl-4">];</p>
+                                <p class="pt-1">}</p>
+                            </div>
+
+                            <!-- VIEW 2: Interactive Artisan Tinker Console -->
+                            <div id="artisanTinkerView" class="hidden font-mono text-xs space-y-3 text-slate-300 transition-all duration-300">
+                                <!-- Preset Pills -->
+                                <div class="flex flex-wrap gap-1.5 pb-1 border-b border-dark-border/50">
+                                    <span class="text-[10px] text-slate-500 self-center uppercase font-mono mr-1">Quick:</span>
+                                    <button class="terminal-preset-pill px-2 py-0.5 rounded text-[10px] bg-slate-800/90 text-aurora-green border border-aurora-green/30" data-cmd="bio">bio</button>
+                                    <button class="terminal-preset-pill px-2 py-0.5 rounded text-[10px] bg-slate-800/90 text-aurora-blue border border-aurora-blue/30" data-cmd="stack">stack</button>
+                                    <button class="terminal-preset-pill px-2 py-0.5 rounded text-[10px] bg-slate-800/90 text-aurora-purple border border-aurora-purple/30" data-cmd="projects">projects</button>
+                                    <button class="terminal-preset-pill px-2 py-0.5 rounded text-[10px] bg-slate-800/90 text-aurora-pink border border-aurora-pink/30" data-cmd="contact">contact</button>
+                                    <button class="terminal-preset-pill px-2 py-0.5 rounded text-[10px] bg-slate-800/90 text-slate-400 border border-slate-700" data-cmd="clear">clear</button>
+                                </div>
+
+                                <!-- Output Log -->
+                                <div id="terminalOutputLog" class="terminal-body space-y-2 py-1 text-slate-300 text-[11px] leading-relaxed">
+                                    <div class="text-slate-500">// Laravel Artisan v11.x (Interactive Shell)</div>
+                                    <div class="text-slate-400">Type <span class="text-aurora-green font-semibold">help</span> or click pills to execute commands.</div>
+                                </div>
+
+                                <!-- Input Prompt Line -->
+                                <form id="terminalPromptForm" class="flex items-center space-x-2 pt-2 border-t border-dark-border/60">
+                                    <span class="text-aurora-green font-bold">>>></span>
+                                    <input type="text" id="terminalCmdInput" class="terminal-prompt-input text-xs text-aurora-green placeholder-slate-600" placeholder="Type a command (e.g. bio, stack)..." autocomplete="off" spellcheck="false">
+                                    <button type="submit" class="px-2 py-0.5 rounded bg-aurora-green/20 text-aurora-green hover:bg-aurora-green hover:text-dark-bg text-[10px] uppercase font-bold transition">
+                                        Run
+                                    </button>
+                                </form>
+                            </div>
+
+                            <!-- Footer Status -->
+                            <div class="mt-4 pt-3 border-t border-dark-border flex items-center justify-between">
+                                <div class="flex items-center space-x-2.5">
+                                    <div class="w-7 h-7 rounded-lg bg-aurora-green/20 text-aurora-green flex items-center justify-center font-bold text-xs">
+                                        <i class="fab fa-laravel text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs font-semibold text-white">Parex Technologies</div>
+                                        <div class="text-[10px] text-slate-400">PHP Laravel Developer</div>
+                                    </div>
+                                </div>
+                                <span class="px-2 py-0.5 rounded-full text-[10px] font-mono bg-aurora-green/15 text-aurora-green border border-aurora-green/30">
+                                    Active Developer
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== ABOUT SECTION ==================== -->
+        <section id="about" class="py-24 px-6 relative">
+            <div class="max-w-6xl mx-auto">
+                <!-- Section Title -->
+                <div class="text-center mb-16 space-y-3">
+                    <span class="text-xs font-mono uppercase tracking-widest text-aurora-green">Get To Know Me</span>
+                    <h2 class="font-heading text-3xl sm:text-5xl font-bold text-white">
+                        About <span class="gradient-text">My Background</span>
+                    </h2>
+                    <div class="w-16 h-1 bg-gradient-to-r from-aurora-green to-aurora-blue mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    <!-- Left: Avatar / Bio visual -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative">
+                            <div class="w-64 h-64 sm:w-72 sm:h-72 rounded-3xl bg-gradient-to-tr from-aurora-green via-aurora-blue to-aurora-purple p-1 glow-pulse">
+                                <div class="w-full h-full bg-dark-surface rounded-[22px] flex flex-col items-center justify-center p-6 text-center space-y-4">
+                                    <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-aurora-green/20 to-aurora-blue/20 border border-aurora-green/40 flex items-center justify-center text-4xl shadow-inner">
+                                        👨‍💻
+                                    </div>
+                                    <div>
+                                        <h3 class="font-heading font-bold text-xl text-white">Yash Bodar</h3>
+                                        <p class="text-xs text-aurora-green font-mono mt-0.5">Senior PHP Laravel Developer</p>
+                                    </div>
+                                    <div class="flex items-center space-x-2 text-xs text-slate-400">
+                                        <i class="fas fa-map-marker-alt text-aurora-pink"></i>
+                                        <span>Ahmedabad, Gujarat, India</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Narrative & Key Highlights -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+                            PHP and Laravel Developer with 3+ years of experience across <strong>Parex Technologies</strong> and <strong>Lembits Technolab</strong>, built on a solid 3-month intensive internship foundation.
+                        </p>
+                        <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                            Specialized in robust backend engineering with <strong>PHP, Laravel, and CodeIgniter</strong>, with hands-on expertise in <strong>MySQL query optimization, RESTful APIs, Blade, Vue.js, and Stripe payment gateway integration</strong>. Experienced in architecting scalable, secure web platforms and collaborating smoothly in Agile sprint cycles.
+                        </p>
+
+                        <!-- Live Stats Counter Grid -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
+                            <div class="glass-card p-4 rounded-xl text-center border border-dark-border">
+                                <div class="text-2xl sm:text-3xl font-extrabold text-aurora-green stat-counter font-heading" data-target="3" data-suffix="+">0+</div>
+                                <div class="text-xs text-slate-400 mt-1">Years Experience</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center border border-dark-border">
+                                <div class="text-2xl sm:text-3xl font-extrabold text-aurora-blue stat-counter font-heading" data-target="2" data-suffix="">0</div>
+                                <div class="text-xs text-slate-400 mt-1">Tech Companies</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center border border-dark-border">
+                                <div class="text-2xl sm:text-3xl font-extrabold text-aurora-purple stat-counter font-heading" data-target="3" data-suffix=" Mo">0 Mo</div>
+                                <div class="text-xs text-slate-400 mt-1">Internship Focus</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center border border-dark-border">
+                                <div class="text-2xl sm:text-3xl font-extrabold text-aurora-pink stat-counter font-heading" data-target="100" data-suffix="%">0%</div>
+                                <div class="text-xs text-slate-400 mt-1">Agile & Delivery</div>
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="pt-2 flex flex-wrap gap-4">
+                            <a href="#experience" class="inline-flex items-center space-x-2 text-sm font-semibold text-aurora-green hover:text-aurora-blue transition">
+                                <span>Check my Work Experience</span>
+                                <i class="fas fa-chevron-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================== SKILLS SECTION ==================== -->
+        <section id="skills" class="py-24 px-6 relative bg-dark-surface/40">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 space-y-3">
+                    <span class="text-xs font-mono uppercase tracking-widest text-aurora-blue">Technical Proficiency</span>
+                    <h2 class="font-heading text-3xl sm:text-5xl font-bold text-white">
+                        Skills & <span class="gradient-text">Tech Stack</span>
+                    </h2>
+                    <div class="w-16 h-1 bg-gradient-to-r from-aurora-blue to-aurora-purple mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Column 1: Backend Engineering -->
+                    <div class="glass-card p-6 rounded-2xl space-y-6">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-xl bg-aurora-green/10 border border-aurora-green/30 flex items-center justify-center text-aurora-green">
+                                <i class="fas fa-server text-lg"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-lg text-white">Backend & APIs</h3>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-xs mb-1 font-medium">
+                                    <span class="text-slate-300">PHP & Laravel Framework</span>
+                                    <span class="text-aurora-green font-mono">95%</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-aurora-green to-aurora-blue rounded-full skill-bar-fill" data-width="95%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs mb-1 font-medium">
+                                    <span class="text-slate-300">RESTful API Design & Integration</span>
+                                    <span class="text-aurora-green font-mono">92%</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-aurora-green to-aurora-blue rounded-full skill-bar-fill" data-width="92%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs mb-1 font-medium">
+                                    <span class="text-slate-300">MySQL Database Optimization</span>
+                                    <span class="text-aurora-green font-mono">90%</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-aurora-green to-aurora-blue rounded-full skill-bar-fill" data-width="90%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs mb-1 font-medium">
+                                    <span class="text-slate-300">CodeIgniter Framework</span>
+                                    <span class="text-aurora-green font-mono">85%</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-aurora-green to-aurora-blue rounded-full skill-bar-fill" data-width="85%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs mb-1 font-medium">
+                                    <span class="text-slate-300">Stripe Payment Gateway</span>
+                                    <span class="text-aurora-green font-mono">88%</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-aurora-green to-aurora-blue rounded-full skill-bar-fill" data-width="88%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Backend badges -->
+                        <div class="pt-2 flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-md text-[11px] bg-dark-bg border border-dark-border text-slate-300">PHP 8+</span>
+                            <span class="px-2.5 py-1 rounded-md text-[11px] bg-dark-bg border border-dark-border text-slate-300">Laravel</span>
+                            <span class="px-2.5 py-1 rounded-md text-[11px] bg-dark-bg border border-dark-border text-slate-300">CodeIgniter</span>
+                            <span class="px-2.5 py-1 rounded-md text-[11px] bg-dark-bg border border-dark-border text-slate-300">MySQL</span>
+                            <span class="px-2.5 py-1 rounded-md text-[11px] bg-dark-bg border border-dark-border text-slate-300">Stripe</span>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Frontend Engineering -->
+                    <div class="glass-card p-6 rounded-2xl space-y-6">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-xl bg-aurora-blue/10 border border-aurora-blue/30 flex items-center justify-center text-aurora-blue">
+                                <i class="fas fa-code text-lg"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-lg text-white">Frontend & UI Integration</h3>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-xs mb-1 font-medium">
+                                    <span class="text-slate-300">Blade Templating Engine</span>
+                                    <span class="text-aurora-blue font-mono">95%</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-aurora-blue to-aurora-purple rounded-full skill-bar-fill" data-width="95%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs mb-1 font-medium">
+                                    <span class="text-slate-300">Vue.js Framework</span>
+                                    <span class="text-aurora-blue font-mono">86%</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-aurora-blue to-aurora-purple rounded-full skill-bar-fill" data-width="86%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs mb-1 font-medium">
+                                    <span class="text-slate-300">JavaScript (ES6+) & jQuery</span>
+                                    <span class="text-aurora-blue font-mono">90%</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-aurora-blue to-aurora-purple rounded-full skill-bar-fill" data-width="90%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs mb-1 font-medium">
+                                    <span class="text-slate-300">AJAX & Dynamic UI Updates</span>
+                                    <span class="text-aurora-blue font-mono">92%</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-aurora-blue to-aurora-purple rounded-full skill-bar-fill" data-width="92%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs mb-1 font-medium">
+                                    <span class="text-slate-300">Bootstrap 5, HTML5 & CSS3</span>
+                                    <span class="text-aurora-blue font-mono">92%</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-aurora-blue to-aurora-purple rounded-full skill-bar-fill" data-width="92%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Frontend badges -->
+                        <div class="pt-2 flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-md text-[11px] bg-dark-bg border border-dark-border text-slate-300">Blade</span>
+                            <span class="px-2.5 py-1 rounded-md text-[11px] bg-dark-bg border border-dark-border text-slate-300">Vue.js</span>
+                            <span class="px-2.5 py-1 rounded-md text-[11px] bg-dark-bg border border-dark-border text-slate-300">JavaScript</span>
+                            <span class="px-2.5 py-1 rounded-md text-[11px] bg-dark-bg border border-dark-border text-slate-300">jQuery / AJAX</span>
+                            <span class="px-2.5 py-1 rounded-md text-[11px] bg-dark-bg border border-dark-border text-slate-300">Bootstrap 5</span>
+                        </div>
+                    </div>
+
+                    <!-- Column 3: Tools & Collaboration -->
+                    <div class="glass-card p-6 rounded-2xl space-y-6">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-xl bg-aurora-purple/10 border border-aurora-purple/30 flex items-center justify-center text-aurora-purple">
+                                <i class="fas fa-tools text-lg"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-lg text-white">Dev Tools & Practices</h3>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-xs mb-1 font-medium">
+                                    <span class="text-slate-300">Git & GitHub Version Control</span>
+                                    <span class="text-aurora-purple font-mono">92%</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-aurora-purple to-aurora-pink rounded-full skill-bar-fill" data-width="92%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs mb-1 font-medium">
+                                    <span class="text-slate-300">Bitbucket Repositories</span>
+                                    <span class="text-aurora-purple font-mono">88%</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-aurora-purple to-aurora-pink rounded-full skill-bar-fill" data-width="88%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs mb-1 font-medium">
+                                    <span class="text-slate-300">Postman API Testing</span>
+                                    <span class="text-aurora-purple font-mono">90%</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-aurora-purple to-aurora-pink rounded-full skill-bar-fill" data-width="90%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs mb-1 font-medium">
+                                    <span class="text-slate-300">Agile / Scrum & Standups</span>
+                                    <span class="text-aurora-purple font-mono">94%</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-aurora-purple to-aurora-pink rounded-full skill-bar-fill" data-width="94%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs mb-1 font-medium">
+                                    <span class="text-slate-300">Composer & Dependency Management</span>
+                                    <span class="text-aurora-purple font-mono">90%</span>
+                                </div>
+                                <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-aurora-purple to-aurora-pink rounded-full skill-bar-fill" data-width="90%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tools badges -->
+                        <div class="pt-2 flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-md text-[11px] bg-dark-bg border border-dark-border text-slate-300">Git</span>
+                            <span class="px-2.5 py-1 rounded-md text-[11px] bg-dark-bg border border-dark-border text-slate-300">Bitbucket</span>
+                            <span class="px-2.5 py-1 rounded-md text-[11px] bg-dark-bg border border-dark-border text-slate-300">Postman</span>
+                            <span class="px-2.5 py-1 rounded-md text-[11px] bg-dark-bg border border-dark-border text-slate-300">Agile</span>
+                            <span class="px-2.5 py-1 rounded-md text-[11px] bg-dark-bg border border-dark-border text-slate-300">Composer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================== EXPERIENCE SECTION ==================== -->
+        <section id="experience" class="py-24 px-6 relative">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16 space-y-3">
+                    <span class="text-xs font-mono uppercase tracking-widest text-aurora-purple">Career Journey</span>
+                    <h2 class="font-heading text-3xl sm:text-5xl font-bold text-white">
+                        Work <span class="gradient-text">Experience</span>
+                    </h2>
+                    <div class="w-16 h-1 bg-gradient-to-r from-aurora-purple to-aurora-pink mx-auto rounded-full"></div>
+                </div>
+
+                <!-- Timeline Container -->
+                <div class="relative pl-6 sm:pl-8 border-l-2 border-slate-700/60 space-y-12">
+
+                    <!-- Milestone 1: Parex Technologies -->
+                    <div class="relative group">
+                        <!-- Glowing Dot -->
+                        <div class="absolute -left-[31px] sm:-left-[39px] top-1 w-4 h-4 rounded-full bg-aurora-green shadow-[0_0_12px_#00ffaa]"></div>
+
+                        <div class="glass-card p-6 sm:p-8 rounded-2xl border border-dark-border">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                                <div>
+                                    <h3 class="font-heading font-bold text-xl text-white group-hover:text-aurora-green transition">PHP Laravel Developer</h3>
+                                    <p class="text-sm text-aurora-green font-medium">Parex Technologies</p>
+                                </div>
+                                <span class="px-3 py-1 rounded-full text-xs font-mono bg-aurora-green/10 text-aurora-green border border-aurora-green/30 self-start sm:self-auto">
+                                    December 2025 – Present
+                                </span>
+                            </div>
+
+                            <ul class="space-y-2 text-slate-300 text-sm leading-relaxed mb-5">
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-check text-aurora-green text-xs mt-1 shrink-0"></i>
+                                    <span>Engineering scalable Laravel backend systems, modern web applications, and robust API endpoints.</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-check text-aurora-green text-xs mt-1 shrink-0"></i>
+                                    <span>Designing and optimizing MySQL relational databases for fast query execution and low latency.</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-check text-aurora-green text-xs mt-1 shrink-0"></i>
+                                    <span>Managing code repositories, branching strategies, and pull requests via <strong>Bitbucket & Git</strong>.</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-check text-aurora-green text-xs mt-1 shrink-0"></i>
+                                    <span>Applying clean code architecture, PSR standards, and collaborating in Agile sprint workflows.</span>
+                                </li>
+                            </ul>
+
+                            <div class="flex flex-wrap gap-2 pt-2 border-t border-dark-border/60">
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-800/80 text-aurora-green border border-aurora-green/20">Laravel</span>
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-800/80 text-aurora-blue border border-aurora-blue/20">PHP 8+</span>
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-800/80 text-aurora-purple border border-aurora-purple/20">RESTful APIs</span>
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-800/80 text-slate-300">MySQL</span>
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-800/80 text-aurora-blue border border-aurora-blue/20"><i class="fab fa-bitbucket mr-1"></i>Bitbucket</span>
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-800/80 text-slate-300">Git</span>
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-800/80 text-slate-300">Blade</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Milestone 2: Lembits Technolab (PHP Web Developer) -->
+                    <div class="relative group">
+                        <!-- Glowing Dot -->
+                        <div class="absolute -left-[31px] sm:-left-[39px] top-1 w-4 h-4 rounded-full bg-aurora-blue shadow-[0_0_12px_#00aaff]"></div>
+
+                        <div class="glass-card p-6 sm:p-8 rounded-2xl border border-dark-border">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                                <div>
+                                    <h3 class="font-heading font-bold text-xl text-white group-hover:text-aurora-blue transition">PHP Web Developer</h3>
+                                    <p class="text-sm text-aurora-blue font-medium">Lembits Technolab Pvt. Ltd.</p>
+                                </div>
+                                <span class="px-3 py-1 rounded-full text-xs font-mono bg-aurora-blue/10 text-aurora-blue border border-aurora-blue/30 self-start sm:self-auto">
+                                    November 2023 – December 2025
+                                </span>
+                            </div>
+
+                            <ul class="space-y-2 text-slate-300 text-sm leading-relaxed mb-5">
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-check text-aurora-blue text-xs mt-1 shrink-0"></i>
+                                    <span>Built and maintained scalable Laravel web applications with a strong focus on performance, security, and reliability.</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-check text-aurora-blue text-xs mt-1 shrink-0"></i>
+                                    <span>Developed core backend architecture and RESTful APIs using PHP and Laravel.</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-check text-aurora-blue text-xs mt-1 shrink-0"></i>
+                                    <span>Implemented frontend integration using Blade templates and Vue.js for dynamic interfaces.</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-check text-aurora-blue text-xs mt-1 shrink-0"></i>
+                                    <span>Integrated Stripe payment gateway for seamless and secure online transactions.</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-check text-aurora-blue text-xs mt-1 shrink-0"></i>
+                                    <span>Optimized MySQL queries and database schema structures to boost overall application speed.</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-check text-aurora-blue text-xs mt-1 shrink-0"></i>
+                                    <span>Collaborated with designers, QA testers, and developers in an Agile development environment (sprint planning, daily standups, code reviews).</span>
+                                </li>
+                            </ul>
+
+                            <div class="flex flex-wrap gap-2 pt-2 border-t border-dark-border/60">
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-800/80 text-aurora-green border border-aurora-green/20">Laravel</span>
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-800/80 text-aurora-blue border border-aurora-blue/20">PHP 8+</span>
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-800/80 text-aurora-purple border border-aurora-purple/20">Vue.js</span>
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-800/80 text-slate-300">Blade</span>
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-800/80 text-slate-300">RESTful APIs</span>
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-800/80 text-emerald-300">Stripe</span>
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-800/80 text-slate-300">MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Milestone 3: Lembits Technolab (Internship) -->
+                    <div class="relative group">
+                        <!-- Glowing Dot -->
+                        <div class="absolute -left-[31px] sm:-left-[39px] top-1 w-4 h-4 rounded-full bg-aurora-purple shadow-[0_0_12px_#aa00ff]"></div>
+
+                        <div class="glass-card p-6 sm:p-8 rounded-2xl border border-dark-border">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                                <div>
+                                    <h3 class="font-heading font-bold text-xl text-white group-hover:text-aurora-purple transition">PHP & Web Development Intern</h3>
+                                    <p class="text-sm text-aurora-purple font-medium">Lembits Technolab Pvt. Ltd.</p>
+                                </div>
+                                <span class="px-3 py-1 rounded-full text-xs font-mono bg-aurora-purple/10 text-aurora-purple border border-aurora-purple/30 self-start sm:self-auto">
+                                    August 2023 – November 2023
+                                </span>
+                            </div>
+
+                            <ul class="space-y-2 text-slate-300 text-sm leading-relaxed mb-4">
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-check text-aurora-purple text-xs mt-1 shrink-0"></i>
+                                    <span>Completed 3-month hands-on training on PHP MVC architecture, CodeIgniter, and Laravel fundamentals.</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-check text-aurora-purple text-xs mt-1 shrink-0"></i>
+                                    <span>Developed CRUD modules and practiced database modeling with MySQL.</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-check text-aurora-purple text-xs mt-1 shrink-0"></i>
+                                    <span>Built responsive frontend layouts using HTML, CSS, JavaScript, and Bootstrap.</span>
+                                </li>
+                            </ul>
+
+                            <div class="flex flex-wrap gap-2 pt-2 border-t border-dark-border/60">
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-800/80 text-slate-300">PHP</span>
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-800/80 text-slate-300">Laravel / CodeIgniter</span>
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-800/80 text-slate-300">MySQL</span>
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-800/80 text-slate-300">HTML5 / CSS3</span>
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-800/80 text-slate-300">Bootstrap</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================== SERVICES SECTION ==================== -->
+        <section id="services" class="py-24 px-6 relative bg-dark-surface/40">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 space-y-3">
+                    <span class="text-xs font-mono uppercase tracking-widest text-aurora-pink">What I Offer</span>
+                    <h2 class="font-heading text-3xl sm:text-5xl font-bold text-white">
+                        Specialized <span class="gradient-text">Services</span>
+                    </h2>
+                    <div class="w-16 h-1 bg-gradient-to-r from-aurora-pink to-aurora-green mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
+                    <div class="glass-card p-8 rounded-2xl space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-aurora-green to-aurora-blue p-[1px]">
+                            <div class="w-full h-full bg-dark-surface rounded-[15px] flex items-center justify-center text-aurora-green text-2xl">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white">Laravel & PHP Web Apps</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            End-to-end web applications engineered with PHP and Laravel, built for security, maintainability, high performance, and reliability.
+                        </p>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="glass-card p-8 rounded-2xl space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-aurora-blue to-aurora-purple p-[1px]">
+                            <div class="w-full h-full bg-dark-surface rounded-[15px] flex items-center justify-center text-aurora-blue text-2xl">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white">RESTful API Engineering</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Robust, clean REST APIs for mobile applications and single-page apps, featuring secure token authentication, validation, and JSON resources.
+                        </p>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="glass-card p-8 rounded-2xl space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-aurora-purple to-aurora-pink p-[1px]">
+                            <div class="w-full h-full bg-dark-surface rounded-[15px] flex items-center justify-center text-aurora-purple text-2xl">
+                                <i class="fas fa-database"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white">MySQL Query & Schema Tuning</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Database structure optimization, indexing, query profiling, and elimination of N+1 bottlenecks to ensure rapid load times.
+                        </p>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="glass-card p-8 rounded-2xl space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-aurora-pink to-aurora-green p-[1px]">
+                            <div class="w-full h-full bg-dark-surface rounded-[15px] flex items-center justify-center text-aurora-pink text-2xl">
+                                <i class="fab fa-stripe-s"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white">Stripe Payment Gateway</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Secure, compliant payment gateway integrations handling checkout sessions, webhooks, recurring subscriptions, and atomic transactions.
+                        </p>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="glass-card p-8 rounded-2xl space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-aurora-green to-aurora-purple p-[1px]">
+                            <div class="w-full h-full bg-dark-surface rounded-[15px] flex items-center justify-center text-aurora-green text-2xl">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white">CodeIgniter & PHP Refactoring</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Modernizing legacy PHP and CodeIgniter applications into structured, clean, and scalable Laravel MVC architectures.
+                        </p>
+                    </div>
+
+                    <!-- Service 6 -->
+                    <div class="glass-card p-8 rounded-2xl space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-aurora-blue to-aurora-pink p-[1px]">
+                            <div class="w-full h-full bg-dark-surface rounded-[15px] flex items-center justify-center text-aurora-blue text-2xl">
+                                <i class="fab fa-vuejs"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white">Blade & Vue.js UI Integration</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Crafting dynamic, reactive interfaces using Blade templates, Vue.js, AJAX, and Bootstrap 5 for seamless user experiences.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================== PORTFOLIO / PROJECTS SECTION ==================== -->
+        <section id="portfolio" class="py-24 px-6 relative">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12 space-y-3">
+                    <span class="text-xs font-mono uppercase tracking-widest text-aurora-green">Real-World Deliveries</span>
+                    <h2 class="font-heading text-3xl sm:text-5xl font-bold text-white">
+                        Featured <span class="gradient-text">Projects</span>
+                    </h2>
+                    <div class="w-16 h-1 bg-gradient-to-r from-aurora-green to-aurora-blue mx-auto rounded-full"></div>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap items-center justify-center gap-3 mb-12">
+                    <button class="filter-btn active px-5 py-2 rounded-full text-xs font-mono tracking-wider uppercase border border-dark-border text-slate-300 transition" data-filter="all">
+                        All Projects
+                    </button>
+                    <button class="filter-btn px-5 py-2 rounded-full text-xs font-mono tracking-wider uppercase border border-dark-border text-slate-300 transition" data-filter="laravel">
+                        Laravel & PHP
+                    </button>
+                    <button class="filter-btn px-5 py-2 rounded-full text-xs font-mono tracking-wider uppercase border border-dark-border text-slate-300 transition" data-filter="vue">
+                        Vue.js & Real-Time
+                    </button>
+                    <button class="filter-btn px-5 py-2 rounded-full text-xs font-mono tracking-wider uppercase border border-dark-border text-slate-300 transition" data-filter="api">
+                        RESTful APIs
+                    </button>
+                </div>
+
+                <!-- Project Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Project 1: Auction Techs -->
+                    <div class="glass-card rounded-2xl overflow-hidden project-card" data-category="laravel vue">
+                        <div class="h-48 bg-gradient-to-tr from-emerald-900/60 via-slate-900 to-teal-900/60 flex items-center justify-center relative border-b border-dark-border group">
+                            <div class="w-16 h-16 rounded-2xl bg-aurora-green/10 border border-aurora-green/30 flex items-center justify-center text-aurora-green text-3xl group-hover:scale-110 transition duration-300">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <span class="absolute top-4 right-4 px-2.5 py-1 rounded-md text-[10px] font-mono bg-dark-bg/80 text-aurora-green border border-aurora-green/30">
+                                Real-Time Auction
+                            </span>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <h3 class="font-heading font-bold text-xl text-white">Auction Techs</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed">
+                                A comprehensive auction management platform built with Laravel and Vue.js. Super Admins manage auctioneers, while auctioneers manage bidders, consignors, and run both timed and onsite auctions with live bid broadcasting.
+                            </p>
+                            
+                            <ul class="space-y-1 text-[11px] text-slate-400 font-mono">
+                                <li>• Auctioneer & Bidder Management</li>
+                                <li>• Timed & Onsite Auctions with Live Bids</li>
+                                <li>• Consignor Management & Event Broadcasting</li>
+                            </ul>
+
+                            <div class="flex flex-wrap gap-1.5 pt-2">
+                                <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-aurora-green/15 text-aurora-green">Laravel</span>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-aurora-blue/15 text-aurora-blue">Vue.js</span>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-aurora-purple/15 text-aurora-purple">Event Broadcasting</span>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-aurora-pink/15 text-aurora-pink">MySQL</span>
+                            </div>
+                            <div class="pt-3 flex items-center justify-between border-t border-dark-border/60">
+                                <a href="https://github.com/yash-bodar" target="_blank" rel="noopener noreferrer" class="text-xs text-aurora-green hover:text-white transition flex items-center space-x-1.5 font-medium">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub Profile</span>
+                                </a>
+                                <span class="text-[11px] text-slate-500 font-mono">Production App</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: ADF -->
+                    <div class="glass-card rounded-2xl overflow-hidden project-card" data-category="laravel">
+                        <div class="h-48 bg-gradient-to-tr from-cyan-900/60 via-slate-900 to-blue-900/60 flex items-center justify-center relative border-b border-dark-border group">
+                            <div class="w-16 h-16 rounded-2xl bg-aurora-blue/10 border border-aurora-blue/30 flex items-center justify-center text-aurora-blue text-3xl group-hover:scale-110 transition duration-300">
+                                <i class="fas fa-shapes"></i>
+                            </div>
+                            <span class="absolute top-4 right-4 px-2.5 py-1 rounded-md text-[10px] font-mono bg-dark-bg/80 text-aurora-blue border border-aurora-blue/30">
+                                Admin & Child Portal
+                            </span>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <h3 class="font-heading font-bold text-xl text-white">ADF Activity Hub</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed">
+                                Laravel-based admin panel for managing interactive educational activities (printables, mazes, hidden items, quizzes) with a dedicated parent portal for creating and tracking child profiles and learning milestones.
+                            </p>
+
+                            <ul class="space-y-1 text-[11px] text-slate-400 font-mono">
+                                <li>• Printable, Maze & Quiz Activity CMS</li>
+                                <li>• Parent-Facing Child Profile Management</li>
+                                <li>• Role-Based Permissions & Admin Dashboard</li>
+                            </ul>
+
+                            <div class="flex flex-wrap gap-1.5 pt-2">
+                                <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-aurora-green/15 text-aurora-green">Laravel</span>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-aurora-blue/15 text-aurora-blue">PHP</span>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-aurora-purple/15 text-aurora-purple">Blade</span>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-aurora-pink/15 text-aurora-pink">MySQL</span>
+                            </div>
+                            <div class="pt-3 flex items-center justify-between border-t border-dark-border/60">
+                                <a href="https://github.com/yash-bodar" target="_blank" rel="noopener noreferrer" class="text-xs text-aurora-blue hover:text-white transition flex items-center space-x-1.5 font-medium">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub Profile</span>
+                                </a>
+                                <span class="text-[11px] text-slate-500 font-mono">Web Application</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: First Choice Car -->
+                    <div class="glass-card rounded-2xl overflow-hidden project-card" data-category="laravel api">
+                        <div class="h-48 bg-gradient-to-tr from-purple-900/60 via-slate-900 to-indigo-900/60 flex items-center justify-center relative border-b border-dark-border group">
+                            <div class="w-16 h-16 rounded-2xl bg-aurora-purple/10 border border-aurora-purple/30 flex items-center justify-center text-aurora-purple text-3xl group-hover:scale-110 transition duration-300">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <span class="absolute top-4 right-4 px-2.5 py-1 rounded-md text-[10px] font-mono bg-dark-bg/80 text-aurora-purple border border-aurora-purple/30">
+                                Automotive APIs
+                            </span>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <h3 class="font-heading font-bold text-xl text-white">First Choice Car</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed">
+                                A feature-rich automotive marketplace platform with high-performance user-side REST APIs for browsing, filtering, and comparing vehicles, including buy/sell workflows and detailed commercial vehicle specs.
+                            </p>
+
+                            <ul class="space-y-1 text-[11px] text-slate-400 font-mono">
+                                <li>• High-Throughput RESTful API Architecture</li>
+                                <li>• Car Comparison & Filter Engine</li>
+                                <li>• Buy / Sell Inquiry & Sold Vehicle Records</li>
+                            </ul>
+
+                            <div class="flex flex-wrap gap-1.5 pt-2">
+                                <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-aurora-green/15 text-aurora-green">Laravel</span>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-aurora-blue/15 text-aurora-blue">RESTful APIs</span>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-aurora-purple/15 text-aurora-purple">MySQL</span>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-aurora-pink/15 text-aurora-pink">AJAX</span>
+                            </div>
+                            <div class="pt-3 flex items-center justify-between border-t border-dark-border/60">
+                                <a href="https://github.com/yash-bodar" target="_blank" rel="noopener noreferrer" class="text-xs text-aurora-purple hover:text-white transition flex items-center space-x-1.5 font-medium">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub Profile</span>
+                                </a>
+                                <span class="text-[11px] text-slate-500 font-mono">Automotive Platform</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ==================== LIVE ARCHITECTURE & EVENT FLOW ==================== -->
+                <div class="mt-16 glass-card p-6 sm:p-8 rounded-2xl border border-dark-border relative overflow-hidden">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-4 border-b border-dark-border/60">
+                        <div>
+                            <div class="flex items-center space-x-2">
+                                <span class="w-2 h-2 rounded-full bg-aurora-green animate-ping"></span>
+                                <span class="text-xs font-mono uppercase tracking-wider text-aurora-green font-semibold">Live System Architecture</span>
+                            </div>
+                            <h3 class="font-heading font-bold text-xl text-white mt-1">High-Throughput Real-Time Event & API Engine</h3>
+                        </div>
+                        <span class="px-3 py-1 rounded-full text-xs font-mono bg-aurora-green/10 text-aurora-green border border-aurora-green/30 self-start sm:self-auto">
+                            Event-Driven Architecture
+                        </span>
+                    </div>
+
+                    <!-- Flow Diagram Grid -->
+                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 relative z-10">
+                        <!-- Node 1: Client -->
+                        <div class="arch-node glass-card p-4 rounded-xl border border-dark-border text-center space-y-2 bg-dark-bg/60">
+                            <div class="w-10 h-10 mx-auto rounded-xl bg-aurora-green/15 text-aurora-green flex items-center justify-center text-lg">
+                                <i class="fab fa-vuejs"></i>
+                            </div>
+                            <div class="text-xs font-bold text-white">Client UI</div>
+                            <p class="text-[10px] text-slate-400 font-mono">Vue.js / Blade</p>
+                            <span class="inline-block px-1.5 py-0.5 text-[9px] font-mono rounded bg-emerald-500/10 text-emerald-400">Live Bids</span>
+                        </div>
+
+                        <!-- Node 2: WebSocket -->
+                        <div class="arch-node glass-card p-4 rounded-xl border border-dark-border text-center space-y-2 bg-dark-bg/60">
+                            <div class="w-10 h-10 mx-auto rounded-xl bg-aurora-blue/15 text-aurora-blue flex items-center justify-center text-lg">
+                                <i class="fas fa-broadcast-tower"></i>
+                            </div>
+                            <div class="text-xs font-bold text-white">Broadcasting</div>
+                            <p class="text-[10px] text-slate-400 font-mono">Laravel Echo</p>
+                            <span class="inline-block px-1.5 py-0.5 text-[9px] font-mono rounded bg-cyan-500/10 text-cyan-400">&lt; 15ms Latency</span>
+                        </div>
+
+                        <!-- Node 3: Core API / Worker -->
+                        <div class="arch-node glass-card p-4 rounded-xl border border-aurora-green/30 text-center space-y-2 bg-dark-bg/90 shadow-[0_0_15px_rgba(0,255,170,0.15)]">
+                            <div class="w-10 h-10 mx-auto rounded-xl bg-gradient-to-tr from-aurora-green to-aurora-blue text-dark-bg flex items-center justify-center text-lg font-bold">
+                                <i class="fab fa-laravel"></i>
+                            </div>
+                            <div class="text-xs font-bold text-white">Laravel Core</div>
+                            <p class="text-[10px] text-aurora-green font-mono">PHP 8.3 Workers</p>
+                            <span class="inline-block px-1.5 py-0.5 text-[9px] font-mono rounded bg-aurora-green/20 text-aurora-green">PSR-12 / Clean</span>
+                        </div>
+
+                        <!-- Node 4: Queue / Cache -->
+                        <div class="arch-node glass-card p-4 rounded-xl border border-dark-border text-center space-y-2 bg-dark-bg/60">
+                            <div class="w-10 h-10 mx-auto rounded-xl bg-aurora-purple/15 text-aurora-purple flex items-center justify-center text-lg">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <div class="text-xs font-bold text-white">Async Queues</div>
+                            <p class="text-[10px] text-slate-400 font-mono">Redis Jobs</p>
+                            <span class="inline-block px-1.5 py-0.5 text-[9px] font-mono rounded bg-purple-500/10 text-purple-400">Atomic Locking</span>
+                        </div>
+
+                        <!-- Node 5: Storage & Payments -->
+                        <div class="arch-node glass-card p-4 rounded-xl border border-dark-border text-center space-y-2 bg-dark-bg/60 col-span-2 md:col-span-1">
+                            <div class="w-10 h-10 mx-auto rounded-xl bg-aurora-pink/15 text-aurora-pink flex items-center justify-center text-lg">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="text-xs font-bold text-white">DB & Stripe</div>
+                            <p class="text-[10px] text-slate-400 font-mono">MySQL + Webhooks</p>
+                            <span class="inline-block px-1.5 py-0.5 text-[9px] font-mono rounded bg-pink-500/10 text-pink-400">ACID compliant</span>
+                        </div>
+                    </div>
+
+                    <!-- Flow Circuit Connection SVG -->
+                    <div class="hidden md:block my-4">
+                        <svg class="w-full h-8 overflow-visible" viewBox="0 0 800 30" fill="none">
+                            <path class="circuit-line" d="M 80 15 L 720 15" stroke="url(#circuitGradient)" stroke-width="2.5" stroke-linecap="round"/>
+                            <defs>
+                                <linearGradient id="circuitGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#00ffaa" stop-opacity="0.8"/>
+                                    <stop offset="50%" stop-color="#00aaff" stop-opacity="0.8"/>
+                                    <stop offset="100%" stop-color="#aa00ff" stop-opacity="0.8"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+
+                    <!-- Architectural Highlights -->
+                    <div class="mt-4 pt-4 border-t border-dark-border/60 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-400">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-aurora-green text-xs"></i>
+                            <span>Real-time bidirectional event broadcasting with Laravel & Pusher</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-aurora-blue text-xs"></i>
+                            <span>Idempotent Stripe webhook handling with atomic DB transactions</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== CONTACT SECTION ==================== -->
+        <section id="contact" class="py-24 px-6 relative">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-16 space-y-3">
+                    <span class="text-xs font-mono uppercase tracking-widest text-aurora-green">Let's Connect</span>
+                    <h2 class="font-heading text-3xl sm:text-5xl font-bold text-white">
+                        Get In <span class="gradient-text">Touch</span>
+                    </h2>
+                    <div class="w-16 h-1 bg-gradient-to-r from-aurora-green to-aurora-pink mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid lg:grid-cols-12 gap-10">
+                    
+                    <!-- Left: Contact Details Cards -->
+                    <div class="lg:col-span-5 space-y-5">
+                        <div class="glass-card p-6 rounded-2xl flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-aurora-green/10 border border-aurora-green/30 flex items-center justify-center text-aurora-green text-xl shrink-0">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-mono">Email Address</div>
+                                <a href="mailto:yashbodar7@gmail.com" class="text-sm font-semibold text-white hover:text-aurora-green transition">yashbodar7@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl shrink-0">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-mono">Phone / WhatsApp</div>
+                                <a href="https://wa.me/919016012405" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-white hover:text-aurora-green transition">+91 9016012405</a>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-aurora-blue/10 border border-aurora-blue/30 flex items-center justify-center text-aurora-blue text-xl shrink-0">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-mono">GitHub Profile</div>
+                                <a href="https://github.com/yash-bodar" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-white hover:text-aurora-blue transition">github.com/yash-bodar</a>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-aurora-purple/10 border border-aurora-purple/30 flex items-center justify-center text-aurora-purple text-xl shrink-0">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-mono">LinkedIn</div>
+                                <a href="https://www.linkedin.com/in/yash-bodar-8558a5275" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-white hover:text-aurora-purple transition">in/yash-bodar-8558a5275</a>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-aurora-pink/10 border border-aurora-pink/30 flex items-center justify-center text-aurora-pink text-xl shrink-0">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-mono">Location</div>
+                                <span class="text-sm font-semibold text-white">Ahmedabad, Gujarat, India</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Interactive Contact Form -->
+                    <div class="lg:col-span-7">
+                        <div class="glass-card p-8 rounded-2xl border border-dark-border">
+                            <h3 class="font-heading font-bold text-2xl text-white mb-6">Send Me a Message</h3>
+
+                            <form id="contactForm" class="space-y-5">
+                                <div class="grid sm:grid-cols-2 gap-5">
+                                    <div>
+                                        <label class="block text-xs font-mono text-slate-300 mb-2">Your Name *</label>
+                                        <input type="text" id="contactName" required placeholder="John Doe" class="w-full px-4 py-3 bg-dark-bg/80 border border-dark-border rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-aurora-green focus:ring-1 focus:ring-aurora-green transition">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-mono text-slate-300 mb-2">Your Email *</label>
+                                        <input type="email" id="contactEmail" required placeholder="john@example.com" class="w-full px-4 py-3 bg-dark-bg/80 border border-dark-border rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-aurora-green focus:ring-1 focus:ring-aurora-green transition">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-mono text-slate-300 mb-2">Subject</label>
+                                    <input type="text" id="contactSubject" placeholder="Project Inquiry / Job Opportunity" class="w-full px-4 py-3 bg-dark-bg/80 border border-dark-border rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-aurora-green focus:ring-1 focus:ring-aurora-green transition">
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-mono text-slate-300 mb-2">Your Message *</label>
+                                    <textarea id="contactMessage" rows="5" required placeholder="Tell me about your project, requirements, or opportunity..." class="w-full px-4 py-3 bg-dark-bg/80 border border-dark-border rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-aurora-green focus:ring-1 focus:ring-aurora-green transition"></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full py-4 rounded-xl btn-primary text-sm font-semibold tracking-wide flex items-center justify-center space-x-2">
+                                    <span>Send Message</span>
+                                    <i class="fas fa-paper-plane text-xs"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-dark-border/80 bg-dark-bg relative z-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-aurora-green to-aurora-blue p-[1px]">
+                    <div class="w-full h-full bg-dark-bg rounded-[7px] flex items-center justify-center">
+                        <span class="font-heading font-bold text-xs gradient-text">YB</span>
+                    </div>
+                </div>
+                <span class="font-heading font-semibold text-sm text-white">Yash Bodar</span>
+            </div>
+
+            <p class="text-xs text-slate-400 text-center">
+                &copy; 2026 Yash Bodar. Senior PHP Laravel Developer.
+            </p>
+
+            <div class="flex items-center space-x-4">
+                <a href="https://github.com/yash-bodar" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-aurora-green transition" title="GitHub" aria-label="GitHub">
+                    <i class="fab fa-github text-lg"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/yash-bodar-8558a5275" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-aurora-blue transition" title="LinkedIn" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in text-lg"></i>
+                </a>
+                <a href="mailto:yashbodar7@gmail.com" class="text-slate-400 hover:text-aurora-purple transition" title="Email" aria-label="Email">
+                    <i class="fas fa-envelope text-lg"></i>
+                </a>
+                <a href="https://wa.me/919016012405" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-aurora-green transition" title="WhatsApp" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp text-lg"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toastNotification" class="toast-notification px-6 py-4 rounded-xl border border-aurora-green shadow-[0_10px_30px_rgba(0,255,170,0.25)] flex items-center space-x-3">
+        <i class="fas fa-check-circle text-aurora-green text-lg"></i>
+        <span id="toastMessage" class="text-xs font-medium text-white">Message sent successfully!</span>
+    </div>
+
+    <!-- Floating Back to Top Button -->
+    <button id="backToTopBtn" class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full glass-card border border-aurora-green/40 text-aurora-green flex items-center justify-center hover:bg-aurora-green hover:text-dark-bg transition-all duration-300 opacity-0 pointer-events-none shadow-lg hover:scale-110" aria-label="Back to Top">
+        <i class="fas fa-arrow-up text-sm"></i>
+    </button>
+
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
